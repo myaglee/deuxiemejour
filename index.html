@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadeau Interactif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F8F8F8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gift {
+            font-size: 200px; /* Taille de l'emoji cadeau, encore plus grand */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gift:hover {
+            transform: scale(1.2); /* Effet au survol */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .hidden-content {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .hidden-content img {
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden-content p {
+            font-size: 1.5rem;
+            color: #8A4F6B;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        audio {
+            display: none; /* Musique en arrière-plan, invisible */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenu caché, qui s'affiche après le clic sur l'emoji -->
+    <div class="container">
+        <div class="gift" id="gift">
+            🎁
+        </div>
+
+        <!-- Contenu caché après le clic -->
+        <div class="hidden-content" id="hiddenContent">
+            <img src="IMG_5793.jpeg" alt="Image Cadeau">
+            <p>一张任选餐厅的礼品券，随时可使用 🎉</p>
+        </div>
+    </div>
+
+    <!-- Musique en arrière-plan, mais elle ne se lance qu'après un clic -->
+    <audio id="background-music" loop>
+        <source src="Wham! - Last Christmas (Official Video).mp3" type="audio/mp3">
+        Votre navigateur ne prend pas en charge l'élément audio.
+    </audio>
+
+    <script>
+        // Lorsque l'utilisateur clique sur l'emoji cadeau
+        document.getElementById('gift').addEventListener('click', function() {
+            // Masquer l'emoji cadeau après le clic
+            document.getElementById('gift').style.display = 'none';
+
+            // Afficher le contenu caché
+            document.getElementById('hiddenContent').style.display = 'block';
+
+            // Lancer la musique après le clic
+            const music = document.getElementById('background-music');
+            music.play(); // Lance la musique
+        });
+    </script>
+
+</body>
+</html>
